@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+/* ========================================
+Table of Contents
+===========================================
+
+* 1. ROOT VARIABLES
+* 2. RESET
+* 3. GENERAL
+* 4. CARD
+* 5. FOOTER
+* 6. MEDIA QUERIES
+
+===========================================
+======================================== */
+
+/* ====================[1]==================== */
+/* ===== ROOT VARIABLES ===== */
+
+:root {
+    /* COLORS */
+    /* PRIMARY */
+    --clr-blue-primary: hsl(225, 100%, 94%);
+    --clr-blue-secondary: hsl(245, 75%, 52%);
+
+    /* NEUTRALS */
+    --clr-blue-100: hsl(225, 100%, 98%);
+    --clr-blue-400: hsl(224, 23%, 55%);
+    --clr-blue-700: hsl(223, 47%, 23%);
+
+    /* TYPOGRAPHY */
+    /* FONT SIZE */
+    --fs-reg: 1rem;
+
+    /* FONT FAMILY */
+    --ff-primary: 'Red Hat Display', sans-serif;
+
+    /* FONT WEIGHT */
+    --fw-reg: 500;
+    --fw-bold: 700;
+    --fw-bolder: 900;
+}
+
+/* ====================[2]==================== */
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+}
+
+/* ====================[3]==================== */
+/* ===== GENERAL ===== */
+body {
+    background-image: url(../images/pattern-background-desktop.svg);
+    background-position: right 0 top -1rem;
+    background-color: var(--clr-blue-primary);
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-reg);
+    font-weight: var(--fw-reg);
+    color: var(--clr-blue-400);
+    margin: 0 1.25rem;
+    text-align: center;
+    display: grid;
+    place-content: center;
+}
+
+.sr-only {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
+
+/* ====================[4]==================== */
+/* ===== CARD ===== */
+
+.card {
+    background: white;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 1.25rem hsl(223deg 100% 90%);
+    max-width: 28.125em;
+}
+
+/* TEXT */
+
+.info-cta {
+    padding: 1.5rem 1.25rem 1rem;
+    display: grid;
+    gap: 1rem;
+}
+
+h1 {
+    font-weight: var(--fw-bolder);
+    color: var(--clr-blue-700);
+}
+
+.pitch {
+    padding: 0 0.75rem;
+}
+
+.plan {
+    background: var(--clr-blue-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.75rem;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    position: relative;
+}
+
+.plan::before {
+    content: url('../images/icon-music.svg');
+    border-radius: 50%;
+    position: absolute;
+    transform: translateY(0.25rem);
+}
+
+.price-cta {
+    margin-left: 4.5rem;
+}
+
+.type {
+    font-weight: var(--fw-bolder);
+    color: var(--clr-blue-700);
+}
+
+a {
+    color: var(--clr-blue-secondary);
+    font-size: 0.9rem;
+    font-weight: var(--fw-bold);
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--clr-blue-400);
+}
+
+/* BUTTONS */
+
+button {
+    width: 100%;
+    padding: 0.8rem 0;
+    border-radius: 0.75rem;
+    border: none;
+    background: var(--clr-blue-secondary);
+    font-weight: var(--fw-bold);
+    color: var(--clr-blue-100);
+    box-shadow: 0 1rem 1.5rem 0.5rem hsl(223deg 100% 90%);
+    transition: color 150ms, background-color 150ms;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: var(--clr-blue-400);
+}
+
+.cancel {
+    background: none;
+    color: var(--clr-blue-400);
+    box-shadow: none;
+}
+
+.cancel:hover {
+    color: var(--clr-blue-700);
+}
+
+/* ====================[5]==================== */
+/* ===== FOOTER ===== */
+
+.attribution {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+/* ====================[6]==================== */
+/* ===== MEDIA QUERIES ===== */
+
+@media (max-width: 21.875em) {
+    
+    .plan {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plan::before {
+        transform: translate(-5.5rem ,0.75rem);
+    }
+
+    .price-cta {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 28.75em) {
+
+    .info-cta {
+        padding: 2rem 3rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    a {
+        font-size: var(--fs-reg);
+    }
+}
